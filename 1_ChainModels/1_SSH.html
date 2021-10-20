@@ -1,0 +1,464 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Su-Schrieffer-Heeger(SSH) model</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="The Rice-Mele (RM) model" href="2_RiceMele.html" />
+    <link rel="prev" title="Quantum Theory of Condensed Matter" href="../index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/QTofCM_logo.svg" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   Quantum Theory of Condensed Matter
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Chain Models - Edge States &amp; Topology
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   The Su-Schrieffer-Heeger(SSH) model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_RiceMele.html">
+   The Rice-Mele (RM) model
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_Exercises.html">
+   Exercises
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/1_ChainModels/1_SSH.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/executablebooks/jupyter-book"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/main?urlpath=tree/docs/1_ChainModels/1_SSH.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#import-python-packages-define-constants">
+   Import python packages, define constants
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#define-and-solve-ssh-models-with-pbc">
+   Define and solve SSH models with PBC
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#infinite-chain-with-pbc-bands">
+     Infinite chain with PBC: Bands
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#interactive-bands">
+     Interactive bands
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="the-su-schrieffer-heeger-ssh-model">
+<h1>The Su-Schrieffer-Heeger(SSH) model<a class="headerlink" href="#the-su-schrieffer-heeger-ssh-model" title="Permalink to this headline">¶</a></h1>
+<p>The Su-Schrieffer-Heeger (SSH) model was constructed to describe the electronic properties of polymer chains. As a one-dimensional system it of- fers the simplest demonstration of concepts of edge states and topological electronic states, which are a central topic of condensed-matter physics in the past decades.</p>
+<p>Both the SSH model and the Rice-Mele (RM) model are defined on the same chain of lattice sites along which an electron can hop. In the SSH model there are exactly two types of hopping whose energies are <span class="math notranslate nohighlight">\(t_{1}\)</span>, <span class="math notranslate nohighlight">\(t_2\)</span> and they alternate along the chain, producing a unit-cell with two atoms (A and B):</p>
+<img src='https://drive.google.com/uc?id=1V5UOubwUue-RKpo8HZnbA5MMepf_u_r3' width="500">
+<p>The RM model adds an on-site potential <span class="math notranslate nohighlight">\(\pm\epsilon\)</span> on all A(B) sites. Combined, for an open chain of <span class="math notranslate nohighlight">\(N\)</span> unit-cells the tight-binding Hamiltonian used in this notebook is in the form:
+$<span class="math notranslate nohighlight">\(H_N=\sum_{i=1}^{2N} t_{i,i+1}\left(|\phi_{i+1}\rangle\langle\phi_i|+|\phi_i\rangle\langle\phi_{i+1}|\right)-(-1)^i \epsilon|\phi_{i}\rangle\langle\phi_i|,\;\;\;\;t_{i,i+1}\equiv\begin{cases}t_1,&amp;i\in\textrm{odd}\\t_2,&amp;i\in\textrm{even}\\\end{cases},\)</span><span class="math notranslate nohighlight">\(
+where \)</span>\epsilon\equiv0<span class="math notranslate nohighlight">\( in the SSH model, while \)</span>|\phi_i\rangle<span class="math notranslate nohighlight">\( are and orthonormalized basis of states of electron localized on site \)</span>i$.</p>
+<p>For an infinite chain the bandstructure is: $<span class="math notranslate nohighlight">\(E_\pm(k)=\pm\sqrt{t_1^2+t_2^2+2t_1 t_2 cos(k)},\)</span><span class="math notranslate nohighlight">\( with the first Brillouin zone given by \)</span>k\in[-\pi,\pi)<span class="math notranslate nohighlight">\(, and we set the lattice constant (i.e., the \)</span>A-A<span class="math notranslate nohighlight">\( distance) \)</span>a\equiv1$ throughout.</p>
+<p>For a finite chain with periodic boundary conditions (PBC), the discrete spectrum is given by <span class="math notranslate nohighlight">\(E_\pm(k_m)\)</span>, where <span class="math notranslate nohighlight">\(k_m=2\pi\frac{m}{N}\)</span> with <span class="math notranslate nohighlight">\(m=0,1\ldots N-1\)</span> (which is equivalent to <span class="math notranslate nohighlight">\(k\)</span> values in the first BZ).</p>
+<hr class="docutils" />
+<div class="section" id="import-python-packages-define-constants">
+<h2>Import python packages, define constants<a class="headerlink" href="#import-python-packages-define-constants" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">linalg</span> <span class="k">as</span> <span class="n">LA</span>
+<span class="c1"># import sympy as sp</span>
+<span class="c1"># from sympy.functions import exp</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">interactive</span><span class="p">,</span> <span class="n">fixed</span><span class="p">,</span> <span class="n">interact_manual</span>
+<span class="kn">import</span> <span class="nn">ipywidgets</span> <span class="k">as</span> <span class="nn">widgets</span>
+
+<span class="n">Pi</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="define-and-solve-ssh-models-with-pbc">
+<h2>Define and solve SSH models with PBC<a class="headerlink" href="#define-and-solve-ssh-models-with-pbc" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="infinite-chain-with-pbc-bands">
+<h3>Infinite chain with PBC: Bands<a class="headerlink" href="#infinite-chain-with-pbc-bands" title="Permalink to this headline">¶</a></h3>
+<p><strong>ssh_PBC_bands(<span class="math notranslate nohighlight">\(t_1\)</span>,<span class="math notranslate nohighlight">\(t_2\)</span>,<span class="math notranslate nohighlight">\(\epsilon\)</span>)</strong> is a class containing the continuous bands of an infinite chain.</p>
+<p><strong>plot_bands(<span class="math notranslate nohighlight">\(k_{min}\)</span>,<span class="math notranslate nohighlight">\(k_{max}\)</span>,<span class="math notranslate nohighlight">\(T_1\)</span>,<span class="math notranslate nohighlight">\(T_2\)</span>)</strong> function plots two panels: (left) The bandstructure over the range <span class="math notranslate nohighlight">\(k\in[k_{min},k_{max}]\)</span>, after imposing the new values <span class="math notranslate nohighlight">\(t_1\equiv T_1\)</span>, <span class="math notranslate nohighlight">\(t_2\equiv T_2\)</span>; (right) The trace of <span class="math notranslate nohighlight">\(f^*_k\)</span> in the complex plane (blue dot is the origin), over the range of <span class="math notranslate nohighlight">\(k\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ssh_PBC_bands</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">t1</span><span class="p">,</span><span class="n">t2</span><span class="p">,</span><span class="n">eps</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="o">=</span><span class="n">t1</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">t2</span><span class="o">=</span><span class="n">t2</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">eps</span><span class="o">=</span><span class="n">eps</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">nrofbands</span><span class="o">=</span><span class="mi">2</span>
+  <span class="k">def</span> <span class="nf">bands</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">eps</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">t2</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">t2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k</span><span class="p">)),</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">eps</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">t2</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">t2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k</span><span class="p">))]</span>
+  <span class="k">def</span> <span class="nf">H12</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">k</span><span class="p">):</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">t2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">k</span><span class="p">)</span>
+  <span class="k">def</span> <span class="nf">plot_bands</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">kmin</span><span class="p">,</span><span class="n">kmax</span><span class="p">,</span><span class="n">newt1</span><span class="p">,</span><span class="n">newt2</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="o">=</span><span class="n">newt1</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">t2</span><span class="o">=</span><span class="n">newt2</span>
+    <span class="n">ks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">kmin</span><span class="p">,</span> <span class="n">kmax</span><span class="p">)</span>
+    <span class="n">spectrum</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">ks</span><span class="p">),</span><span class="bp">self</span><span class="o">.</span><span class="n">nrofbands</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ks</span><span class="p">)):</span>
+      <span class="n">spectrum</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bands</span><span class="p">(</span><span class="n">ks</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="p">))</span>
+    <span class="n">spectrum</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">spectrum</span><span class="p">)</span>
+    <span class="c1">#print(spectrum)</span>
+    <span class="c1">### Plot</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">kmin</span><span class="p">,</span> <span class="n">kmax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">kmin</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">kmax</span><span class="p">)))</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$k$&quot;</span><span class="p">)</span>
+    <span class="n">ymax</span> <span class="o">=</span> <span class="mf">1.1</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t2</span><span class="p">))</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="n">ymax</span><span class="p">,</span> <span class="n">ymax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">t2</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">t2</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">t2</span><span class="p">)])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$E/|t_1|$&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Infinite chain bands: $t_1=$&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;, $t_2=$&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t2</span><span class="p">))</span>
+    <span class="c1">###</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nrofbands</span><span class="p">):</span>
+      <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ks</span><span class="p">,</span> <span class="n">spectrum</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s2">&quot;black&quot;</span><span class="p">)</span>
+
+    <span class="n">emax</span><span class="o">=</span><span class="mf">1.1</span><span class="o">*</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t2</span><span class="p">))</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="n">emax</span><span class="p">,</span><span class="n">emax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t2</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t2</span><span class="p">)])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Re[$H_</span><span class="si">{12}</span><span class="s2">(k)$]&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="n">emax</span><span class="p">,</span><span class="n">emax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">([</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="p">)</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t2</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t2</span><span class="p">)])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Im[$H_</span><span class="si">{12}</span><span class="s2">(k)$]&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Winding: $t_1=$&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t1</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;, $t_2=$&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">t2</span><span class="p">))</span>
+    <span class="c1">###</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">H12</span><span class="p">(</span><span class="n">ks</span><span class="p">)),</span><span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">H12</span><span class="p">(</span><span class="n">ks</span><span class="p">)),</span> <span class="s2">&quot;blue&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">([</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">#CHECK the PBC spectrum</span>
+<span class="c1">#testm=sp.Matrix([[eps, t1+t2*exp(1j*k)], [t1+t2*exp(-1j*k), -eps]])</span>
+<span class="c1">#t1, t2, k, eps = sp.symbols(&#39;t1 t2 k eps&#39;)</span>
+<span class="c1">#print(&quot;Eigenvalues:&quot;)</span>
+<span class="c1">#print(testm.eigenvals())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eps</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">ssh_PBC_bands</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="n">eps</span><span class="p">)</span><span class="o">.</span><span class="n">plot_bands</span><span class="p">(</span><span class="o">-</span><span class="n">Pi</span><span class="p">,</span><span class="n">Pi</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">ssh_PBC_bands</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="n">eps</span><span class="p">)</span><span class="o">.</span><span class="n">plot_bands</span><span class="p">(</span><span class="o">-</span><span class="n">Pi</span><span class="p">,</span><span class="n">Pi</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/1_SSH_5_0.png" src="../_images/1_SSH_5_0.png" />
+<img alt="../_images/1_SSH_5_1.png" src="../_images/1_SSH_5_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="interactive-bands">
+<h3>Interactive bands<a class="headerlink" href="#interactive-bands" title="Permalink to this headline">¶</a></h3>
+<p>A slider to change value of <span class="math notranslate nohighlight">\(t_2\)</span> in real-time, with fixed values <span class="math notranslate nohighlight">\(t_1,\epsilon\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t1</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">intb</span><span class="o">=</span><span class="n">ssh_PBC_bands</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">t2</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">intb</span><span class="o">.</span><span class="n">plot_bands</span><span class="p">(</span><span class="o">-</span><span class="n">Pi</span><span class="p">,</span><span class="n">Pi</span><span class="p">,</span><span class="n">t1</span><span class="p">,</span><span class="n">t2</span><span class="p">)</span>
+<span class="n">interact</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">t2</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span><span class="nb">min</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span><span class="nb">max</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">step</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span><span class="n">value</span><span class="o">=</span><span class="mi">0</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "b1d9d8ae48574bc7b24438f81ffb69ab"}
+</script></div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+
+
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"d2c006ee03774fdd97871255752151c0": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "c63c2b8e1581471e8fd1475cd23f6394": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "5e76f6c508254bce9d38aef8a7d46460": {"model_name": "FloatSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatSliderView", "continuous_update": true, "description": "t2", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_d2c006ee03774fdd97871255752151c0", "max": 2.0, "min": -2.0, "orientation": "horizontal", "readout": true, "readout_format": ".2f", "step": 0.05, "style": "IPY_MODEL_c63c2b8e1581471e8fd1475cd23f6394", "value": 0.0}}, "5aef9f569580439bb75b2030375fb42c": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "b1d9d8ae48574bc7b24438f81ffb69ab": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_5e76f6c508254bce9d38aef8a7d46460", "IPY_MODEL_35b822558e3d4550a040b3e9b671ebb1"], "layout": "IPY_MODEL_5aef9f569580439bb75b2030375fb42c"}}, "0da28c3cca0d42459bc92d913f8e900c": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "35b822558e3d4550a040b3e9b671ebb1": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_0da28c3cca0d42459bc92d913f8e900c", "msg_id": "", "outputs": [{"output_type": "display_data", "metadata": {"needs_background": "light"}, "data": {"text/plain": "<Figure size 432x288 with 2 Axes>", "image/png": "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\n"}}]}}}, "version_major": 2, "version_minor": 0}
+</script>
+
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./1_ChainModels"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../index.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">Quantum Theory of Condensed Matter</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="2_RiceMele.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title">The Rice-Mele (RM) model</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Andrej Meszaros & Pascal Simon<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
