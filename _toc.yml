@@ -1,10 +1,10 @@
 # Table of contents
 # Learn more at https://jupyterbook.org/customize/toc.html
-
 format: jb-book
 root: index
 parts:
-  - caption: Edge States & Topology
-    chapters:
-    - file: SSH
-    - file: RiceMele
+- caption: Chain Models - Edge States & Topology
+  chapters:
+    - file: 1_ChainModels/1_SSH
+    - file: 1_ChainModels/2_RiceMele
+    - file: 1_ChainModels/3_Exercises
