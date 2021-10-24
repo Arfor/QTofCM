@@ -9,9 +9,13 @@
 # 
 # <img src='https://drive.google.com/uc?id=1V5UOubwUue-RKpo8HZnbA5MMepf_u_r3' width="500">
 # 
-# The RM model adds an on-site potential $\pm\epsilon$ on all A(B) sites. Combined, for an open chain of $N$ unit-cells the tight-binding Hamiltonian used in this notebook is in the form:
-# $$H_N=\sum_{i=1}^{2N} t_{i,i+1}\left(|\phi_{i+1}\rangle\langle\phi_i|+|\phi_i\rangle\langle\phi_{i+1}|\right)-(-1)^i \epsilon|\phi_{i}\rangle\langle\phi_i|,\;\;\;\;t_{i,i+1}\equiv\begin{cases}t_1,&i\in\textrm{odd}\\t_2,&i\in\textrm{even}\\\end{cases},$$
-# where $\epsilon\equiv0$ in the SSH model, while $|\phi_i\rangle$ are and orthonormalized basis of states of electron localized on site $i$.
+# The RM model adds an on-site potential +(-)$\epsilon$ on all A(B) sites. Combined, for an open chain of $N$ unit-cells the tight-binding Hamiltonian used in this notebook is in the form:
+# 
+# $$
+# H_N=\sum_{i=1}^{2N} t_{i,i+1}\left(|\phi_{i+1}\rangle\langle\phi_i|+|\phi_i\rangle\langle\phi_{i+1}|\right)-(-1)^i \epsilon|\phi_{i}\rangle\langle\phi_i|,\;\;\;\;t_{i,i+1}\equiv\begin{cases}t_1,&i\in\textrm{odd}\\t_2,&i\in\textrm{even}\\\end{cases},
+# $$
+# 
+# where $\epsilon\equiv0$ in the SSH model, while $|\phi_i\rangle$ are an orthonormalized basis of states of an electron localized on site $i$.
 # 
 # For an infinite chain the bandstructure is: $$E_\pm(k)=\pm\sqrt{t_1^2+t_2^2+2t_1 t_2 cos(k)},$$ with the first Brillouin zone given by $k\in[-\pi,\pi)$, and we set the lattice constant (i.e., the $A-A$ distance) $a\equiv1$ throughout.
 # 

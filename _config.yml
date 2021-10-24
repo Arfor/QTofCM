@@ -15,6 +15,15 @@ latex:
   latex_documents:
     targetname: QTofCM.tex
 
+parse:
+  myst_enable_extensions:
+    - dollarmath
+    
+# Specify to use mathjax 3 as default
+sphinx:
+  config:
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
   - references.bib
@@ -22,7 +31,7 @@ bibtex_bibfiles:
 # Information about where the book exists on the web
 repository:
   url: https://github.com/executablebooks/jupyter-book  # Online location of your book
-  path_to_book: docs  # Optional path to your book, relative to the repository root
+  path_to_book: gh-pages  # Optional path to your book, relative to the repository root
   branch: main  # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
