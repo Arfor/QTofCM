@@ -2,6 +2,6 @@
 
 Welcome to the course!
 
-:::{note}
+```{note}
 This course works best when trying to reproduce the results, either analytically or with code.
-:::
+```
