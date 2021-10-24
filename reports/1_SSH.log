@@ -1,0 +1,41 @@
+Traceback (most recent call last):
+  File "C:\Users\c7041271\Anaconda3\envs\website\lib\site-packages\jupyter_cache\executors\utils.py", line 51, in single_nb_execution
+    executenb(
+  File "C:\Users\c7041271\Anaconda3\envs\website\lib\site-packages\nbclient\client.py", line 1117, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\c7041271\Anaconda3\envs\website\lib\site-packages\nbclient\util.py", line 78, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "C:\Users\c7041271\Anaconda3\envs\website\lib\site-packages\nbclient\util.py", line 57, in just_run
+    return loop.run_until_complete(coro)
+  File "C:\Users\c7041271\Anaconda3\envs\website\lib\asyncio\base_events.py", line 642, in run_until_complete
+    return future.result()
+  File "C:\Users\c7041271\Anaconda3\envs\website\lib\site-packages\nbclient\client.py", line 558, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\c7041271\Anaconda3\envs\website\lib\site-packages\nbclient\client.py", line 862, in async_execute_cell
+    self._check_raise_for_error(cell, exec_reply)
+  File "C:\Users\c7041271\Anaconda3\envs\website\lib\site-packages\nbclient\client.py", line 765, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+```{code-cell} ipython3
+---
+render:
+  image:
+    width: 200px
+
+  figure:
+    name: ssh-bands
+---
+eps=0
+ssh_PBC_bands(1,0.1,eps).plot_bands(-Pi,Pi,1,0.1)
+ssh_PBC_bands(1,1.1,eps).plot_bands(-Pi,Pi,1,1.1)
+```
+------------------
+
+[1;36m  File [1;32m"C:\Users\c7041271\AppData\Local\Temp/ipykernel_9908/3790895424.py"[1;36m, line [1;32m1[0m
+[1;33m    ```{code-cell} ipython3[0m
+[1;37m    ^[0m
+[1;31mSyntaxError[0m[1;31m:[0m invalid syntax
+
+SyntaxError: invalid syntax (Temp/ipykernel_9908/3790895424.py, line 1)
+
