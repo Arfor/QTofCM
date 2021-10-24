@@ -10,14 +10,16 @@
 # <img src='https://drive.google.com/uc?id=1V5UOubwUue-RKpo8HZnbA5MMepf_u_r3' width="500">
 # 
 # The RM model adds an on-site potential +(-)$\epsilon$ on all A(B) sites. Combined, for an open chain of $N$ unit-cells the tight-binding Hamiltonian used in this notebook is in the form:
-# 
 # $$
 # H_N=\sum_{i=1}^{2N} t_{i,i+1}\left(|\phi_{i+1}\rangle\langle\phi_i|+|\phi_i\rangle\langle\phi_{i+1}|\right)-(-1)^i \epsilon|\phi_{i}\rangle\langle\phi_i|,\;\;\;\;t_{i,i+1}\equiv\begin{cases}t_1,&i\in\textrm{odd}\\t_2,&i\in\textrm{even}\\\end{cases},
 # $$
-# 
 # where $\epsilon\equiv0$ in the SSH model, while $|\phi_i\rangle$ are an orthonormalized basis of states of an electron localized on site $i$.
 # 
-# For an infinite chain the bandstructure is: $$E_\pm(k)=\pm\sqrt{t_1^2+t_2^2+2t_1 t_2 cos(k)},$$ with the first Brillouin zone given by $k\in[-\pi,\pi)$, and we set the lattice constant (i.e., the $A-A$ distance) $a\equiv1$ throughout.
+# For an infinite chain the bandstructure is: 
+# $$
+# E_\pm(k)=\pm\sqrt{t_1^2+t_2^2+2t_1 t_2 cos(k)},
+# $$
+# with the first Brillouin zone given by $k\in[-\pi,\pi)$, and we set the lattice constant (i.e., the $A-A$ distance) $a\equiv1$ throughout.
 # 
 # For a finite chain with periodic boundary conditions (PBC), the discrete spectrum is given by $E_\pm(k_m)$, where $k_m=2\pi\frac{m}{N}$ with $m=0,1\ldots N-1$ (which is equivalent to $k$ values in the first BZ).
 # 
@@ -47,57 +49,67 @@ Pi=np.pi
 # 
 # **plot_bands($k_{min}$,$k_{max}$,$T_1$,$T_2$)** function plots two panels: (left) The bandstructure over the range $k\in[k_{min},k_{max}]$, after imposing the new values $t_1\equiv T_1$, $t_2\equiv T_2$; (right) The trace of $f^*_k$ in the complex plane (blue dot is the origin), over the range of $k$.
 
+# ```{margin} 
+# ```{admonition} Code Blocks
+# We will do our best to make the code as readable as possible, so try to understand every step which encodes some physics! Bonus points if you find ways to make the code faster or more readable ;)
+# ``` 
+# ```
+
 # In[2]:
 
 
 class ssh_PBC_bands:
-  def __init__(self,t1,t2,eps=0):
-    self.t1=t1
-    self.t2=t2
-    self.eps=eps
-    self.nrofbands=2
-  def bands(self,k):
-    return [-np.sqrt(self.eps**2+self.t1**2+self.t2**2+2*self.t1*self.t2*np.cos(k)),np.sqrt(self.eps**2+self.t1**2+self.t2**2+2*self.t1*self.t2*np.cos(k))]
-  def H12(self,k):
-    return self.t1+self.t2*np.exp(1j*k)
-  def plot_bands(self,kmin,kmax,newt1,newt2):
-    self.t1=newt1
-    self.t2=newt2
-    ks = np.linspace(kmin, kmax)
-    spectrum=np.empty((len(ks),self.nrofbands))
-    for i in range(len(ks)):
-      spectrum[i]=(self.bands(ks[i])/np.abs(self.t1))
-    spectrum=np.transpose(spectrum)
-    #print(spectrum)
-    ### Plot
-    fig, ax=plt.subplots(1,2,figsize=(6,4))
-    ax[0].set_xlim(kmin, kmax)
-    ax[0].set_xticks(np.arange(np.ceil(kmin),np.ceil(kmax)))
-    ax[0].set_xlabel("$k$")
-    ymax = 1.1*(np.abs(self.t1)+np.abs(self.t2))
-    ax[0].set_ylim(-ymax, ymax)
-    ax[0].set_yticks([-np.abs(self.t1+self.t2),0,np.abs(self.t1+self.t2),np.abs(self.t1-self.t2)])
-    ax[0].set_ylabel("$E/|t_1|$")
-    ax[0].set_title("Infinite chain bands: $t_1=$"+str(self.t1)+", $t_2=$"+str(self.t2))
-    ###
-    for i in range(self.nrofbands):
-      ax[0].plot(ks, spectrum[i], "black")
+    def __init__(self,t1,t2,eps=0):
+        self.t1=t1
+        self.t2=t2
+        self.eps=eps
+        self.nrofbands=2
+    
+    def bands(self,k):
+        return [-np.sqrt(self.eps**2+self.t1**2+self.t2**2+2*self.t1*self.t2*np.cos(k)), 
+                np.sqrt(self.eps**2+self.t1**2+self.t2**2+2*self.t1*self.t2*np.cos(k))]
 
-    emax=1.1*(np.abs(self.t1)+np.abs(self.t2))
-    ax[1].set_aspect('equal','box')
-    ax[1].set_xlim(-emax,emax)
-    ax[1].set_xticks([-np.abs(self.t1)-np.abs(self.t2),0,np.abs(self.t1)+np.abs(self.t2)])
-    ax[1].set_xlabel("Re[$H_{12}(k)$]")
-    ax[1].set_ylim(-emax,emax)
-    ax[1].set_yticks([-np.abs(self.t1)-np.abs(self.t2),0,np.abs(self.t1)+np.abs(self.t2)])
-    ax[1].set_ylabel("Im[$H_{12}(k)$]")
-    ax[1].set_title("Winding: $t_1=$"+str(self.t1)+", $t_2=$"+str(self.t2))
-    ###
-    ax[1].plot(np.real(self.H12(ks)),np.imag(self.H12(ks)), "blue")
-    ax[1].scatter([0],[0])
+    def H12(self,k):
+        return self.t1+self.t2*np.exp(1j*k)
 
-    plt.tight_layout()
-    plt.show()
+    def plot_bands(self,kmin,kmax,newt1,newt2):
+        self.t1=newt1
+        self.t2=newt2
+        ks = np.linspace(kmin, kmax)
+        spectrum=np.empty((len(ks),self.nrofbands))
+        for i in range(len(ks)):
+          spectrum[i]=(self.bands(ks[i])/np.abs(self.t1))
+        spectrum=np.transpose(spectrum)
+        #print(spectrum)
+        ### Plot
+        fig, ax=plt.subplots(1,2,figsize=(6,4))
+        ax[0].set_xlim(kmin, kmax)
+        ax[0].set_xticks(np.arange(np.ceil(kmin),np.ceil(kmax)))
+        ax[0].set_xlabel("$k$")
+        ymax = 1.1*(np.abs(self.t1)+np.abs(self.t2))
+        ax[0].set_ylim(-ymax, ymax)
+        ax[0].set_yticks([-np.abs(self.t1+self.t2),0,np.abs(self.t1+self.t2),np.abs(self.t1-self.t2)])
+        ax[0].set_ylabel("$E/|t_1|$")
+        ax[0].set_title("Infinite chain bands: $t_1=$"+str(self.t1)+", $t_2=$"+str(self.t2))
+        ###
+        for i in range(self.nrofbands):
+          ax[0].plot(ks, spectrum[i], "black")
+
+        emax=1.1*(np.abs(self.t1)+np.abs(self.t2))
+        ax[1].set_aspect('equal','box')
+        ax[1].set_xlim(-emax,emax)
+        ax[1].set_xticks([-np.abs(self.t1)-np.abs(self.t2),0,np.abs(self.t1)+np.abs(self.t2)])
+        ax[1].set_xlabel("Re[$H_{12}(k)$]")
+        ax[1].set_ylim(-emax,emax)
+        ax[1].set_yticks([-np.abs(self.t1)-np.abs(self.t2),0,np.abs(self.t1)+np.abs(self.t2)])
+        ax[1].set_ylabel("Im[$H_{12}(k)$]")
+        ax[1].set_title("Winding: $t_1=$"+str(self.t1)+", $t_2=$"+str(self.t2))
+        ###
+        ax[1].plot(np.real(self.H12(ks)),np.imag(self.H12(ks)), "blue")
+        ax[1].scatter([0],[0])
+
+        plt.tight_layout()
+        plt.show()
 
 #CHECK the PBC spectrum
 #testm=sp.Matrix([[eps, t1+t2*exp(1j*k)], [t1+t2*exp(-1j*k), -eps]])
